@@ -1,0 +1,76 @@
+/*
+Theme Name: yellowmontreal
+Theme URI: https://github.com/daphneaugier/yellowMontreal
+Author: Daphné Augier
+Author URI: https://daphneaugier.com
+Description: Un thème WordPress responsive avec une page Hero personnalisable.
+Version: 1.0
+Requires PHP: 8.0
+Requires at least: 6.0
+Tested up to: 6.7
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: yellowmontreal
+Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+@import "./fonts";
+@import "./assets/css/hero.css";
+@import "./assets/css/header.css";
+@import "./assets/css/footer.css";
+
+:root {
+  --primary-color: #fff36d;
+  --text-color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "NeueMontreal", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  line-height: 25px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+p{
+  margin: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+}
+main h1{
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2em;
+}
+main section{
+  margin: 20px 0;
+  line-height: 1.2em;
+}
+button {
+  border: 1px solid black;
+  padding: 12px 19px;
+  width: fit-content;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #fff36d;
+}

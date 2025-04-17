@@ -1,0 +1,60 @@
+/* header and main menu */
+header > div{
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: row;
+  }
+  nav li {
+    padding: 10px;
+    list-style: none;
+  }
+  
+  .download-nav {
+    font-size: 14px;
+    z-index: 1000;
+    text-align: right;
+    align-items: end;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 90%;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    list-style: none;
+  }
+  .main-nav {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  @media (min-width: 768px) {
+    header {
+      flex-direction: row;
+    }
+  }
+  @media (max-width: 900px) {
+    .download-nav {
+      margin: 12px;
+      position: sticky;
+    }
+  }
+  

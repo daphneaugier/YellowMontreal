@@ -1,0 +1,45 @@
+/* hero section */
+
+.hero-container {
+  display: flex;
+  height: 80vh;
+}
+
+.hero-content {
+  display: flex;
+  width: 60%;
+  text-align: left;
+  flex-direction: column;
+  margin-left: 100px;
+  padding-top: 60px;
+}
+.hero-content h1 {
+  font-size: 3.2em;
+  font-weight: 600;
+  line-height: 1.2em;
+}
+.hero-content p {
+  font-size: 1.4rem;
+}
+.video-container video {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .hero-content h1 {
+    font-size: 2em;
+    width: 100%;
+    margin-left: 20px;
+  }
+  .video-container video {
+    width: 90%;
+    height: 80%;
+  }
+}
