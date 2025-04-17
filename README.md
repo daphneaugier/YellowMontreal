@@ -2,6 +2,10 @@
 
 Yellow Montreal is a minimalist, responsive, and fast WordPress theme built for creatives, designers, and personal blogs. Simple to customize, lightweight, and SEO-friendly.
 
+## 🎨 Design Inspiration
+
+Yellow Montreal is a WordPress adaptation of my original portfolio [daphneaugier.com](https://daphneaugier.com) design, which was built using React. This theme brings the same clean aesthetic and UX principles to the WordPress ecosystem, tailored for bloggers, creatives, and minimalists.
+
  !! Work in progress !! Use it with care and feedback.
  
 ## 🔧 Features
