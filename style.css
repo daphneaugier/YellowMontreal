@@ -17,6 +17,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 @import "./fonts";
 @import "./assets/css/hero.css";
+@import "./assets/css/content.css";
 @import "./assets/css/header.css";
 @import "./assets/css/footer.css";
 
@@ -46,26 +47,12 @@ body {
 p{
   margin: 0;
 }
+
 a{
     text-decoration: none;
     color: black;
 }
-main{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 60px;
-}
-main h1{
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1.2em;
-}
-main section{
-  margin: 20px 0;
-  line-height: 1.2em;
-}
+
 button {
   border: 1px solid black;
   padding: 12px 19px;
