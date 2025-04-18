@@ -26,7 +26,7 @@ add_theme_support("automatic-feed-links");
  * @since yellowMontreal 1.0.0
  */
 add_theme_support('custom-background', apply_filters('yellowmontreal_custom_background_args', array(
-    'default-color' => 'ffffff',
+    'default-color' => 'fff36d',
     'default-image' => '',
 )));
 
