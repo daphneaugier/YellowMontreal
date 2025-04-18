@@ -17,7 +17,15 @@ add_theme_support("title-tag");
 add_theme_support("post-thumbnails");
 add_theme_support("html5", array("comment-list", "comment-form", "search-form", "gallery", "caption"));
 add_theme_support("automatic-feed-links");
-
+add_theme_support( 'custom-header', array('video' => true));
+add_filter( 'header_video_settings', 'hero_video_settings');
+function hero_video_settings( $settings ) {
+  $settings['minWidth'] = 400;
+  $settings['minHeight'] = 400;
+  $settings['maxWidth'] = 500;
+  $settings['maxHeight'] = 500;  
+  return $settings;
+}
 /**
  * Setup the WordPress core custom background feature.
  *
@@ -84,27 +92,12 @@ add_action('wp_enqueue_scripts', 'yellowmontreal_scripts');
 /**
  * Customizer additions.
  */
-//require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
  */
 //require get_template_directory() . '/inc/jetpack.php';
-
-/**
- * Custom template tags for this theme.
- */
-//require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-//require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
-//require get_template_directory() . '/inc/customizer.php';
 
 
 function register_yellowmontreal_menus()
@@ -120,85 +113,3 @@ function register_yellowmontreal_menus()
 
 add_action('init', 'register_yellowmontreal_menus');
 
-function yellowmontrealtheme_customize_register($wp_customize)
-{
-    $wp_customize->add_section('hero_section', array(
-        'title' => 'Section Hero',
-        'priority' => 30,
-    ));
-
-    $wp_customize->add_setting('hero_title', array(
-        'default' => 'Welcome to YellowMontreal',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-
-    $wp_customize->add_control('hero_title', array(
-        'label' => 'Hero Section Title',
-        'section' => 'hero_section',
-        'type' => 'text',
-    ));
-
-    $wp_customize->add_setting('hero_text', array(
-        'default' => 'A modern and customizable WordPress theme.',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-
-    $wp_customize->add_control('hero_text', array(
-        'label' => 'Hero Section Text', 
-        'section' => 'hero_section',
-        'type' => 'text',
-    ));
-
-    $wp_customize->add_setting('hero_button', array(
-        'default' => 'En savoir plus',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-
-    $wp_customize->add_control('hero_button', array(
-        'label' => 'Texte du bouton',
-        'section' => 'hero_section',
-        'type' => 'text',
-    ));
-    /*
-    $wp_customize->add_setting('hero_video', array(
-        'default' => get_theme_file_uri() . '/assets/hero_video.mp4',
-        'sanitize_callback' => 'esc_url_raw',
-    ));
-
-     $wp_customize->add_control('hero_video', array(
-        'label' => 'Vidéo de la Hero Section 1',
-        'section' => 'hero_section',
-        'type' => 'text',
-    )); */
-
-    $wp_customize->add_setting('hero_video', array(
-        'default' => get_theme_file_uri() . '/assets/hero_video.mp4',
-        'sanitize_callback' => 'esc_url_raw',
-        'type' => 'theme_mod',
-        'capability' => 'edit_theme_options',
-    ));
-
-    $wp_customize->add_control(
-        new WP_Customize_Image_Control($wp_customize, 'hero_video', array(
-            'label' => __('Hero Section image', 'theme-slug'),
-            'section' => 'hero_section',
-            'settings' => 'hero_video',
-        ))
-    );
-
-
-}
-add_action('customize_register', 'yellowmontrealtheme_customize_register');
-
-function somename_customize_register($wp_customize)
-{
-    $wp_customize->get_setting('image_control_one');
-    // Add and manipulate theme images to be used.
-    $wp_customize->add_section('imageoner', array(
-        "title" => 'Home Page Images',
-        "priority" => 28,
-        "description" => __('Upload images to display on the homepage.', 'theme-slug')
-    ));
-
-}
-add_action('customize_register', 'somename_customize_register');
