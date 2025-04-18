@@ -133,7 +133,7 @@ function yellowmontrealtheme_customize_register($wp_customize)
     ));
 
     $wp_customize->add_control('hero_title', array(
-        'label' => 'Titre de la Hero Section',
+        'label' => 'Hero Section Title',
         'section' => 'hero_section',
         'type' => 'text',
     ));
@@ -144,22 +144,10 @@ function yellowmontrealtheme_customize_register($wp_customize)
     ));
 
     $wp_customize->add_control('hero_text', array(
-        'label' => 'Texte de la Hero Section',
+        'label' => 'Hero Section Text', 
         'section' => 'hero_section',
         'type' => 'text',
     ));
-
-    $wp_customize->add_setting('hero_video', array(
-        'default' => get_theme_file_uri() . '/assets/hero_video.mp4',
-        'sanitize_callback' => 'esc_url_raw',
-    ));
-
-    $wp_customize->add_control('hero_video', array(
-        'label' => 'Vidéo de la Hero Section',
-        'section' => 'hero_section',
-        'type' => 'text',
-    ));
-
 
     $wp_customize->add_setting('hero_button', array(
         'default' => 'En savoir plus',
@@ -171,5 +159,46 @@ function yellowmontrealtheme_customize_register($wp_customize)
         'section' => 'hero_section',
         'type' => 'text',
     ));
+    /*
+    $wp_customize->add_setting('hero_video', array(
+        'default' => get_theme_file_uri() . '/assets/hero_video.mp4',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+     $wp_customize->add_control('hero_video', array(
+        'label' => 'Vidéo de la Hero Section 1',
+        'section' => 'hero_section',
+        'type' => 'text',
+    )); */
+
+    $wp_customize->add_setting('hero_video', array(
+        'default' => get_theme_file_uri() . '/assets/hero_video.mp4',
+        'sanitize_callback' => 'esc_url_raw',
+        'type' => 'theme_mod',
+        'capability' => 'edit_theme_options',
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control($wp_customize, 'hero_video', array(
+            'label' => __('Hero Section image', 'theme-slug'),
+            'section' => 'hero_section',
+            'settings' => 'hero_video',
+        ))
+    );
+
+
 }
 add_action('customize_register', 'yellowmontrealtheme_customize_register');
+
+function somename_customize_register($wp_customize)
+{
+    $wp_customize->get_setting('image_control_one');
+    // Add and manipulate theme images to be used.
+    $wp_customize->add_section('imageoner', array(
+        "title" => 'Home Page Images',
+        "priority" => 28,
+        "description" => __('Upload images to display on the homepage.', 'theme-slug')
+    ));
+
+}
+add_action('customize_register', 'somename_customize_register');
